@@ -72,7 +72,59 @@ const questions = [
     }
 ]
 
+// Function to write the SVG file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => 
         err ? console.error(err) : console.log("Logo created successfully"));
 }
+
+// Function to initialize app
+async function init() {
+    // Initialize variables
+    let userText = '';
+    let userShape = '';
+    let svgString = '';
+    let svgFileName = 'logo.svg'
+
+    // Prompt the user to answer questions
+    const answers = await inquirer.prompt(questions);
+
+    // Check if text length is valid
+    if (answers.text.length>0 && answers.text.length<4) {
+        userText = answers.text;
+    }
+    // Return error message if invalid text length
+    else {
+        return console.log("Invalid text entry. Must be 1-3 characters in length.")
+    }
+
+    // Select correct shape class
+    if (answers.shape === 'Circle') {
+        userShape = new Circle();
+    }
+    else if (answers.shape === 'Triangle') {
+        userShape = new Triangle();
+    }
+    else if (answers.shape === 'Square') {
+        userShape = new Square();
+    }
+    else {
+        return console.log('Somehow you selected an option not from the list.');
+    }
+
+    // Set the colour of the shape
+    userShape.setColour(answers.colour);
+
+    // Create the svg
+    let svg = new SVG();
+    svg.setText(userText, answers.textColour);
+    svg.setShape(userShape);
+    svgString = svg.render();
+
+    //Create the logo.svg file
+    writeToFile(svgFileName, svgString);
+
+}
+
+// Run the app
+init();
