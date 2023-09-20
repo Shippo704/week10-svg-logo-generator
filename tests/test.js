@@ -8,7 +8,7 @@ describe('Shapes', () => {
             const colour = "red";
             circle.setColour(colour);
 
-            expect(circle.render()).toEqual(`<circle cx="50%" cy="50%" r="150" height="100%" width="100% fill="${colour}"/>`);
+            expect(circle.render()).toEqual(`<circle cx="50%" cy="50%" r="150" height="100%" width="100%" fill="${colour}"/>`);
         });
     });
 
