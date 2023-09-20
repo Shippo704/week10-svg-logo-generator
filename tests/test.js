@@ -5,27 +5,30 @@ describe('Shapes', () => {
     describe('Circle', () => {
         it ('should return the string for drawing a circle', () => {
             const circle = new Circle();
-            const result = circle;
+            const colour = "red";
+            circle.setColour(colour);
 
-            expect(result).toEqual(`<circle cx="50%" cy="50%" r="150" height="100%" width="100% fill="${this.colour}">`);
+            expect(circle.render()).toEqual(`<circle cx="50%" cy="50%" r="150" height="100%" width="100% fill="${colour}"/>`);
         });
     });
 
     describe('Triangle', () => {
         it ('should return the string for drawing a triangle', () => {
             const triangle = new Triangle();
-            const result = triangle;
+            const colour = "green";
+            triangle.setColour(colour);
 
-            expect(result).toEqual(`<polygon height="100%" width="100%" points="0,300 150,0 300,300" fill="${this.colour}">`);
+            expect(triangle.render()).toEqual(`<polygon height="100%" width="100%" points="0,300 150,0 300,300" fill="${colour}"/>`);
         });
     });
 
     describe('Square', () => {
         it ('should return the string for drawing a square', () => {
             const square = new Square();
-            const result = square;
+            const colour = "blue";
+            square.setColour(colour);
 
-            expect(result).toEqual(`<rect x="50" height="250" width="250" fill="${this.colour}">`);
+            expect(square.render()).toEqual(`<rect x="50" height="250" width="250" fill="${colour}"/>`);
         });
     });
 

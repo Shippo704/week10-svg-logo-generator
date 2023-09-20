@@ -67,7 +67,7 @@ const questions = [
     //Shape Colour
     {
         type: 'input',
-        name: 'textColour',
+        name: 'colour',
         message: 'Enter a colour for your shape. Input either a colour name or a hexadecimal code in the format #RRGGBB: '
     }
 ]
