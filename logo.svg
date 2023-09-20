@@ -1,0 +1,13 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+            width="300" 
+            height="300"
+            >
+            <circle cx="50%" cy="50%" r="150" height="100%" width="100%" fill="green"/><text 
+            x="150" 
+            y="200" 
+            font-size="72" 
+            text-anchor="middle" 
+            fill="white"
+            >
+            SVG
+            </text></svg>
